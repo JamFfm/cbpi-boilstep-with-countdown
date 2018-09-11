@@ -12,24 +12,24 @@ class BoilStepWithCountdownReminders(StepBase):
     BoilStep with reminders that are set relative to end of boil
     '''
     REMINDER_NAMES = [
-        "Hop 1 Addition",
-        "Hop 2 Addition",
-        "Hop 3 Addition",
-        "Hop 4 Addition",
-        "Hop 5 Addition",
-        "Prepare yeast",
-        "Prepare finings",
-        "Prepare cooling system",
-        "Dose finings",
-        "Start hot-side cooling loop",
-        "Prepare fermenter"
+        "Hop 1 Addition                 as minutes boiltime to the end",
+        "Hop 2 Addition                 as minutes boiltime to the end",
+        "Hop 3 Addition                 as minutes boiltime to the end",
+        "Hop 4 Addition                 as minutes boiltime to the end",
+        "Hop 5 Addition                 as minutes boiltime to the end",
+        "Prepare yeast                  as minutes before end",
+        "Prepare finings                as minutes before end",
+        "Prepare cooling system         as minutes before end",   
+        "Dose finings                   as minutes before end",
+        "Start hot-side cooling loop    as minutes before end",
+        "Prepare fermenter              as minutes before end"        
     ]
     # Properties
-    temp = Property.Number("Temperature", configurable=True, default_value=100, description="Target temperature for boiling")
+    temp = Property.Number("Temperature", configurable=True, default_value=99, description="Target temperature for boiling")
     kettle = StepProperty.Kettle("Kettle", description="Kettle in which the boiling step takes place")
     timer = Property.Number("Timer in Minutes", configurable=True, default_value=90, description="Timer is started when target temperature is reached")
 
-    reminder_00 = Property.Number(REMINDER_NAMES[0], configurable=True)
+    reminder_00 = Property.Number(REMINDER_NAMES[0], configurable=True, description="Fill in times like in MMM recepies, e.g. Boil for 80 Minutes fill in 80")
     reminder_00_displayed = Property.Number("", default_value=None, description="Reminder displayed status")
     reminder_01 = Property.Number(REMINDER_NAMES[1], configurable=True)
     reminder_01_displayed = Property.Number("",default_value=None)
