@@ -12,44 +12,47 @@ class BoilStepWithCountdownReminders(StepBase):
     BoilStep with reminders that are set relative to end of boil
     '''
     REMINDER_NAMES = [
-        "Hop 1 Addition                 as minutes boiltime to the end",
-        "Hop 2 Addition                 as minutes boiltime to the end",
-        "Hop 3 Addition                 as minutes boiltime to the end",
-        "Hop 4 Addition                 as minutes boiltime to the end",
-        "Hop 5 Addition                 as minutes boiltime to the end",
-        "Prepare yeast                  as minutes before end",
-        "Prepare finings                as minutes before end",
-        "Prepare cooling system         as minutes before end",   
-        "Dose finings                   as minutes before end",
-        "Start hot-side cooling loop    as minutes before end",
-        "Prepare fermenter              as minutes before end"        
+        "Hop 1 Addition",
+        "Hop 2 Addition",
+        "Hop 3 Addition",
+        "Hop 4 Addition",
+        "Hop 5 Addition",
+        "Prepare yeast",
+        "Prepare finings",
+        "Prepare cooling system",   
+        "Dose finings",
+        "Start hot-side cooling loop",
+        "Prepare fermenter"        
     ]
+    REMINDER_EPILOGE_ADD = " as minutes boiltime to the end"
+    REMINDER_EPILOGE_PREP = " as minutes before end"
+    
     # Properties
     temp = Property.Number("Temperature", configurable=True, default_value=99, description="Target temperature for boiling")
     kettle = StepProperty.Kettle("Kettle", description="Kettle in which the boiling step takes place")
     timer = Property.Number("Timer in Minutes", configurable=True, default_value=90, description="Timer is started when target temperature is reached")
 
-    reminder_00 = Property.Number(REMINDER_NAMES[0], configurable=True, description="Fill in times like in MMM recepies, e.g. Boil for 80 Minutes fill in 80")
+    reminder_00 = Property.Number(REMINDER_NAMES[0]+REMINDER_EPILOGE_ADD, configurable=True, description="Fill in times like in MMM recepies, e.g. Boil for 80 Minutes fill in 80")
     reminder_00_displayed = Property.Number("", default_value=None, description="Reminder displayed status")
-    reminder_01 = Property.Number(REMINDER_NAMES[1], configurable=True)
+    reminder_01 = Property.Number(REMINDER_NAMES[1]+REMINDER_EPILOGE_ADD, configurable=True)
     reminder_01_displayed = Property.Number("",default_value=None)
-    reminder_02 = Property.Number(REMINDER_NAMES[2], configurable=True)
+    reminder_02 = Property.Number(REMINDER_NAMES[2]+REMINDER_EPILOGE_ADD, configurable=True)
     reminder_02_displayed = Property.Number("", default_value=None)
-    reminder_03 = Property.Number(REMINDER_NAMES[3], configurable=True)
+    reminder_03 = Property.Number(REMINDER_NAMES[3]+REMINDER_EPILOGE_ADD, configurable=True)
     reminder_03_displayed = Property.Number("", default_value=None)
-    reminder_04 = Property.Number(REMINDER_NAMES[4], configurable=True)
+    reminder_04 = Property.Number(REMINDER_NAMES[4]+REMINDER_EPILOGE_ADD, configurable=True)
     reminder_04_displayed = Property.Number("", default_value=None)
-    reminder_05 = Property.Number(REMINDER_NAMES[5], configurable=True)
+    reminder_05 = Property.Number(REMINDER_NAMES[5]+REMINDER_EPILOGE_ADD, configurable=True)
     reminder_05_displayed = Property.Number("", default_value=None)
-    reminder_06 = Property.Number(REMINDER_NAMES[6], configurable=True)
+    reminder_06 = Property.Number(REMINDER_NAMES[6]+REMINDER_EPILOGE_PREP, configurable=True)
     reminder_06_displayed = Property.Number("", default_value=None, description="Reminder displayed status")
-    reminder_07 = Property.Number(REMINDER_NAMES[7], configurable=True)
+    reminder_07 = Property.Number(REMINDER_NAMES[7]+REMINDER_EPILOGE_PREP, configurable=True)
     reminder_07_displayed = Property.Number("", default_value=None, description="Reminder displayed status")
-    reminder_08 = Property.Number(REMINDER_NAMES[8], configurable=True)
+    reminder_08 = Property.Number(REMINDER_NAMES[8]+REMINDER_EPILOGE_PREP, configurable=True)
     reminder_08_displayed = Property.Number("", default_value=None, description="Reminder displayed status")
-    reminder_09 = Property.Number(REMINDER_NAMES[9], configurable=True)
+    reminder_09 = Property.Number(REMINDER_NAMES[9]+REMINDER_EPILOGE_PREP, configurable=True)
     reminder_09_displayed = Property.Number("", default_value=None, description="Reminder displayed status")
-    reminder_10 = Property.Number(REMINDER_NAMES[10], configurable=True)
+    reminder_10 = Property.Number(REMINDER_NAMES[10]+REMINDER_EPILOGE_PREP, configurable=True)
     reminder_10_displayed = Property.Number("", default_value=None, description="Reminder displayed status")
 
     def init(self):
