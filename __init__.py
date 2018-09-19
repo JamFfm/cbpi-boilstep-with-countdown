@@ -32,7 +32,7 @@ class BoilStepWithCountdownReminders(StepBase):
     kettle = StepProperty.Kettle("Kettle", description="Kettle in which the boiling step takes place")
     timer = Property.Number("Timer in Minutes", configurable=True, default_value=90, description="Timer is started when target temperature is reached")
 
-    reminder_00 = Property.Number(REMINDER_NAMES[0]+REMINDER_EPILOGE_ADD, configurable=True, description="Fill in times like in MMM recepies, e.g. Boil for 80 Minutes fill in 80")
+    reminder_00 = Property.Number(REMINDER_NAMES[0]+REMINDER_EPILOGE_ADD, configurable=True, description="Fill in times like in common recepies, e.g. Boil for 80 Minutes fill in 80")
     reminder_00_displayed = Property.Number("", default_value=None, description="Reminder displayed status")
     reminder_01 = Property.Number(REMINDER_NAMES[1]+REMINDER_EPILOGE_ADD, configurable=True)
     reminder_01_displayed = Property.Number("",default_value=None)
